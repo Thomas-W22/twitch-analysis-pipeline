@@ -1,0 +1,4 @@
+-- Niveau 5 : window functions (RANK, ROW_NUMBER, LAG, LEAD)
+-- Exemples à écrire toi-même :
+--   - Évolution du rang d'un jeu dans le temps
+--   - Croissance de viewers d'un streamer entre deux captures (LAG/LEAD)

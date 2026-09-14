@@ -1,0 +1,3 @@
+-- Niveau 3 : jointures entre games / streamers / stream_snapshots
+-- Exemples à écrire toi-même :
+--   - Nom du jeu + nom du streamer + viewer_count sur les derniers snapshots

@@ -1,0 +1,100 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="HEalIBgHrjy1I_Mq6fw5">
+    <mxGraphModel dx="538" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="streamers" parent="1" style="swimlane;html=1;startSize=26;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="STREAMERS" vertex="1">
+          <mxGeometry height="114" width="220" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="streamers_r1" parent="streamers" style="text;html=1;strokeColor=#6c8ebf;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="user_id (PK)" vertex="1">
+          <mxGeometry height="26" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="streamers_r2" parent="streamers" style="text;html=1;strokeColor=#6c8ebf;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="login" vertex="1">
+          <mxGeometry height="26" width="220" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="streamers_r3" parent="streamers" style="text;html=1;strokeColor=#6c8ebf;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="display_name" vertex="1">
+          <mxGeometry height="26" width="220" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="diffusions" parent="1" style="swimlane;html=1;startSize=26;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="DIFFUSIONS" vertex="1">
+          <mxGeometry height="114" width="220" x="420" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="diffusions_r1" parent="diffusions" style="text;html=1;strokeColor=#82b366;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="id (PK)" vertex="1">
+          <mxGeometry height="26" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="diffusions_r2" parent="diffusions" style="text;html=1;strokeColor=#82b366;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="started_at" vertex="1">
+          <mxGeometry height="26" width="220" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="diffusions_r3" parent="diffusions" style="text;html=1;strokeColor=#82b366;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="user_id (FK)" vertex="1">
+          <mxGeometry height="26" width="220" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="observations" parent="1" style="swimlane;html=1;startSize=26;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="OBSERVATIONS" vertex="1">
+          <mxGeometry height="218" width="240" x="420" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="observations_r1" parent="observations" style="text;html=1;strokeColor=#d79b00;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="id (PK)" vertex="1">
+          <mxGeometry height="26" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="observations_r2" parent="observations" style="text;html=1;strokeColor=#d79b00;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="viewer_count" vertex="1">
+          <mxGeometry height="26" width="240" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="observations_r3" parent="observations" style="text;html=1;strokeColor=#d79b00;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="title" vertex="1">
+          <mxGeometry height="26" width="240" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="observations_r4" parent="observations" style="text;html=1;strokeColor=#d79b00;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="language" vertex="1">
+          <mxGeometry height="26" width="240" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="observations_r5" parent="observations" style="text;html=1;strokeColor=#d79b00;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="captured_at" vertex="1">
+          <mxGeometry height="26" width="240" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="observations_r6" parent="observations" style="text;html=1;strokeColor=#d79b00;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="diffusion_id (FK)" vertex="1">
+          <mxGeometry height="26" width="240" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="observations_r7" parent="observations" style="text;html=1;strokeColor=#d79b00;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="game_id (FK, nullable)" vertex="1">
+          <mxGeometry height="26" width="240" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="games" parent="1" style="swimlane;html=1;startSize=26;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" value="GAMES" vertex="1">
+          <mxGeometry height="114" width="200" x="800" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="games_r1" parent="games" style="text;html=1;strokeColor=#b85450;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="game_id (PK)" vertex="1">
+          <mxGeometry height="26" width="200" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="games_r2" parent="games" style="text;html=1;strokeColor=#b85450;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="name" vertex="1">
+          <mxGeometry height="26" width="200" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="games_r3" parent="games" style="text;html=1;strokeColor=#b85450;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="box_art_url" vertex="1">
+          <mxGeometry height="26" width="200" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="obstags" parent="1" style="swimlane;html=1;startSize=26;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" value="OBSERVATION_TAGS" vertex="1">
+          <mxGeometry height="88" width="240" x="420" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="obstags_r1" parent="obstags" style="text;html=1;strokeColor=#9673a6;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="observation_id (PK, FK)" vertex="1">
+          <mxGeometry height="26" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="obstags_r2" parent="obstags" style="text;html=1;strokeColor=#9673a6;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="tag_name (PK, FK)" vertex="1">
+          <mxGeometry height="26" width="240" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="tags" parent="1" style="swimlane;html=1;startSize=26;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="TAGS" vertex="1">
+          <mxGeometry height="62" width="200" x="800" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="tags_r1" parent="tags" style="text;html=1;strokeColor=#d6b656;fillColor=none;align=left;verticalAlign=middle;spacingLeft=8;fontSize=12;" value="tag_name (PK)" vertex="1">
+          <mxGeometry height="26" width="200" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="streamers" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;fontSize=11;" target="diffusions" value="realise  (1,N) — (1,1)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="diffusions" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;fontSize=11;" target="observations" value="comporte  (1,N) — (1,1)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="games" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;fontSize=11;" target="observations" value="concerne  (0,N) — (0,1)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="observations" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;fontSize=11;" target="obstags" value="possede  (0,N) — (1,1)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="tags" style="edgeStyle=entityRelationEdgeStyle;rounded=0;html=1;fontSize=11;" target="obstags" value="est_utilise  (0,N) — (1,1)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

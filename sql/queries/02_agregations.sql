@@ -1,0 +1,4 @@
+-- Niveau 2 : agrégations (GROUP BY, COUNT, AVG, SUM)
+-- Exemples à écrire toi-même :
+--   - Viewers moyens par jeu
+--   - Nombre de streamers distincts par langue

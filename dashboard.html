@@ -1,0 +1,445 @@
+<title>Douze lectures du Twitch francophone</title>
+<style>
+.viz-root{color-scheme:light;
+--surface-1:#fcfcfb;--surface-2:#f4f3f0;--surface-3:#eceae5;
+--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#83827d;--border:#e2e1dc;
+--c1:#2a78d6;--c2:#eb6834;--c3:#1baf7a;--c4:#eda100;--c5:#e87ba4;
+--grid:#e8e7e2;--accent:#2a78d6;--pos:#008300;--neg:#e34948}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) .viz-root{color-scheme:dark;
+--surface-1:#1a1a19;--surface-2:#232322;--surface-3:#2c2c2a;
+--text-primary:#ffffff;--text-secondary:#c3c2b7;--text-muted:#8a8981;--border:#383835;
+--c1:#3987e5;--c2:#d95926;--c3:#199e70;--c4:#c98500;--c5:#d55181;
+--grid:#2e2e2c;--accent:#3987e5;--pos:#4caf50;--neg:#e66767}}
+:root[data-theme="dark"] .viz-root{color-scheme:dark;
+--surface-1:#1a1a19;--surface-2:#232322;--surface-3:#2c2c2a;
+--text-primary:#ffffff;--text-secondary:#c3c2b7;--text-muted:#8a8981;--border:#383835;
+--c1:#3987e5;--c2:#d95926;--c3:#199e70;--c4:#c98500;--c5:#d55181;
+--grid:#2e2e2c;--accent:#3987e5;--pos:#4caf50;--neg:#e66767}
+*{box-sizing:border-box}
+body{margin:0;background:#fcfcfb}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) body{background:#1a1a19}}
+:root[data-theme="dark"] body{background:#1a1a19}
+.viz-root{background:var(--surface-1);color:var(--text-primary);
+font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;padding:44px 24px 72px;min-height:100vh}
+.wrap{max-width:1020px;margin:0 auto}
+h1{font-size:29px;line-height:1.2;margin:0 0 8px;letter-spacing:-.022em}
+.lede{color:var(--text-secondary);margin:0 0 6px;font-size:16px;max-width:70ch}
+.meta{color:var(--text-muted);font-size:13px;margin:0 0 40px}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);
+margin:56px 0 18px;padding-bottom:9px;border-bottom:1px solid var(--border);font-weight:600}
+h3{font-size:16.5px;margin:0 0 3px;letter-spacing:-.01em}
+.cap{color:var(--text-secondary);font-size:13.5px;margin:0 0 15px;max-width:74ch}
+.card{background:var(--surface-2);border:1px solid var(--border);border-radius:11px;padding:20px 22px;margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:2px;
+background:var(--border);border:1px solid var(--border);border-radius:11px;overflow:hidden;margin-bottom:16px}
+.tile{background:var(--surface-2);padding:15px 17px}
+.tile .k{font-size:11.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.tile .v{font-size:24px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.tile .s{font-size:12px;color:var(--text-secondary);margin-top:3px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);
+border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.pair>div{background:var(--surface-2);padding:15px 17px}
+.pair .k{font-size:12px;color:var(--text-muted);margin-bottom:6px}
+.pair .v{font-size:23px;font-weight:600;letter-spacing:-.02em}
+.pair .s{font-size:12px;color:var(--text-secondary);margin-top:4px}
+.scroll{overflow-x:auto}
+svg{display:block;max-width:100%}
+.lg{display:flex;gap:15px;flex-wrap:wrap;margin-top:13px;font-size:12.5px;color:var(--text-secondary)}
+.lg span{display:inline-flex;align-items:center;gap:6px}
+.lg i{width:11px;height:11px;border-radius:3px;display:block;flex:none}
+table.t{border-collapse:collapse;width:100%;font-size:13px}
+table.t th,table.t td{text-align:right;padding:7px 10px;border-bottom:1px solid var(--border);
+font-variant-numeric:tabular-nums;white-space:nowrap}
+table.t th:first-child,table.t td:first-child{text-align:left;white-space:normal}
+table.t th{color:var(--text-muted);font-weight:500;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em}
+table.t tr:last-child td{border-bottom:none}
+.note{background:var(--surface-3);border-left:2px solid var(--accent);border-radius:0 9px 9px 0;
+padding:14px 17px;font-size:13.5px;color:var(--text-secondary);margin:16px 0 0}
+.note b{color:var(--text-primary);font-weight:600}
+.note p{margin:0 0 9px}.note p:last-child{margin:0}
+.note code{background:var(--surface-1);padding:1px 5px;border-radius:4px;font-size:12.5px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+details{margin-top:13px}
+summary{cursor:pointer;font-size:12.5px;color:var(--text-muted)}
+summary:hover{color:var(--text-secondary)}
+details table.t{margin-top:11px}
+.sm{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px}
+.sm .u{background:var(--surface-1);border:1px solid var(--border);border-radius:9px;padding:11px 12px 8px}
+.sm .u .n{font-size:12.5px;font-weight:600;margin-bottom:2px;line-height:1.25}
+.sm .u .p{font-size:11.5px;color:var(--text-muted);margin-bottom:7px}
+#tip{position:fixed;z-index:60;pointer-events:none;opacity:0;transition:opacity .09s;
+background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:9px 11px;
+font-size:12.5px;box-shadow:0 5px 20px rgba(0,0,0,.16);color:var(--text-primary);max-width:260px}
+#tip b{display:block;margin-bottom:5px;font-size:13px}
+#tip .r{display:flex;justify-content:space-between;gap:16px;color:var(--text-secondary);line-height:1.65}
+#tip .r span:last-child{color:var(--text-primary);font-variant-numeric:tabular-nums}
+#tip .r i{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:6px;flex:none}
+.hit{fill:transparent;cursor:pointer}
+.foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--border);
+font-size:12.5px;color:var(--text-muted);line-height:1.75}
+.foot b{color:var(--text-secondary)}
+</style>
+<div class="viz-root"><div class="wrap">
+
+<h1>Douze lectures du Twitch francophone</h1>
+<p class="lede">Ce qu&rsquo;une semaine de captures toutes les dix minutes permet de mesurer&nbsp;: le rythme des audiences, la vie des diffusions, la rotation des streamers &mdash; et ce qu&rsquo;elle ne permet pas.</p>
+<p class="meta" id="metaline"></p>
+
+<div class="tiles" id="tiles"></div>
+
+<h2>Les streamers</h2>
+
+<div class="card">
+<h3>Une audience portée par 400 habitués</h3>
+<p class="cap">Part de l&rsquo;audience totale selon le nombre de fois où un streamer a été capturé. Les 397 streamers vus au moins 100 fois concentrent 72,9&nbsp;% de l&rsquo;audience, alors qu&rsquo;ils ne sont que 15&nbsp;% des streamers observés.</p>
+<div class="scroll"><div id="c7"></div></div>
+<details><summary>Voir les données</summary><div id="t7"></div></details>
+<div class="note"><p><b>Ce que ça règle pour la phase 2.</b> Le seuil de «&nbsp;streamer régulier&nbsp;» de l&rsquo;Option B se lit directement ici&nbsp;: à <code>COUNT(*) &gt;= 100</code>, on garde 397 streamers et près des trois quarts du signal. Descendre plus bas ajoute beaucoup d&rsquo;individus pour très peu d&rsquo;audience.</p></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h3>La rotation se stabilise</h3>
+<p class="cap">Part des streamers vus pour la première fois, jour après jour. La décrue est mécanique &mdash; le stock de «&nbsp;déjà vus&nbsp;» grandit &mdash; mais le plancher de 15&nbsp;% indique un renouvellement réel et continu du bas de classement.</p>
+<div class="scroll"><div id="c6"></div></div>
+<details><summary>Voir les données</summary><div id="t6"></div></details>
+</div>
+<div class="card">
+<h3>Qui réécrit son titre en direct</h3>
+<p class="cap">Changements de titre au sein d&rsquo;une même diffusion. Le classement est dominé par les streams marathon, qui actualisent leur titre à chaque segment.</p>
+<div id="t2"></div>
+</div>
+</div>
+
+<h2>Les diffusions</h2>
+
+<div class="card">
+<h3>La courbe de vie d&rsquo;un live</h3>
+<p class="cap">Audience moyenne exprimée en pourcentage du pic de chaque diffusion, selon l&rsquo;ancienneté du live. Normaliser par le pic rend comparable un stream à 200 viewers et un à 50&nbsp;000.</p>
+<div class="scroll"><div id="c3"></div></div>
+<details><summary>Voir les données</summary><div id="t3"></div></details>
+<div class="note"><p><b>Lecture.</b> Le live monte pendant deux heures, culmine, puis s&rsquo;érode lentement&nbsp;: à dix heures de direct il ne reste que 64&nbsp;% du pic. <b>Limite&nbsp;:</b> les sessions sont censurées des deux côtés &mdash; certaines avaient commencé avant la collecte, d&rsquo;autres continuaient après.</p></div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h3>Changer de jeu coûte un peu d&rsquo;audience</h3>
+<p class="cap">Variation médiane entre deux captures consécutives, selon qu&rsquo;il y a eu changement de jeu ou non.</p>
+<div class="pair" id="p1"></div>
+<div class="note"><p><b>Le piège évité.</b> En moyenne des pourcentages, le changement de jeu affichait <b>+7,8&nbsp;%</b> &mdash; conclusion inverse. Un stream passant de 10 à 20 viewers pèse +100&nbsp;% et écrase le calcul. En médiane, sur les streams d&rsquo;au moins 30 viewers, le signe s&rsquo;inverse.</p></div>
+</div>
+<div class="card">
+<h3>Les rediffusions</h3>
+<p class="cap">Le tag <code>Rediffusion</code> isole les replays, à exclure de toute mesure d&rsquo;audience live.</p>
+<div class="pair" id="p4"></div>
+<div class="note"><p>Un replay plafonne à <b>8&nbsp;833</b> viewers quand un live atteint <b>118&nbsp;996</b>&nbsp;: deux régimes distincts, qu&rsquo;il vaut mieux ne pas mélanger dans une moyenne.</p></div>
+</div>
+</div>
+
+<div class="card">
+<h3>Les pics ne sont pas de la croissance</h3>
+<p class="cap">Plus fortes hausses entre deux captures consécutives d&rsquo;une même diffusion. Dix minutes d&rsquo;intervalle&nbsp;: ces bonds sont des raids, des redirections ou des événements, jamais une montée organique.</p>
+<div id="t8"></div>
+</div>
+
+<h2>Les jeux</h2>
+
+<div class="card">
+<h3>Parts d&rsquo;audience, jour après jour</h3>
+<p class="cap">Les cinq jeux les plus regardés de la semaine, en pourcentage de l&rsquo;audience quotidienne totale.</p>
+<div class="scroll"><div id="c9"></div></div>
+<div class="lg" id="l9"></div>
+<details><summary>Voir les données</summary><div id="t9"></div></details>
+<div class="note"><p><b>Un événement visible dans les données.</b> <i>Call of Duty: Modern Warfare 4</i> passe de <b>0,1&nbsp;%</b> à <b>8,0&nbsp;%</b> en vingt-quatre heures. La collecte couvrait la semaine de la Gamescom&nbsp;: le pic est un effet d&rsquo;actualité, pas un rythme hebdomadaire.</p></div>
+</div>
+
+<div class="card">
+<h3>Chaque jeu a son heure</h3>
+<p class="cap">Répartition horaire de l&rsquo;audience de chaque jeu, en pourcentage de son propre total. Normaliser par jeu compare des <i>formes</i> horaires, pas des volumes.</p>
+<div class="sm" id="c10"></div>
+<details><summary>Voir les données</summary><div id="t10"></div></details>
+</div>
+
+<h2>L&rsquo;écosystème</h2>
+
+<div class="card">
+<h3>Le seuil d&rsquo;entrée dans le top 150</h3>
+<p class="cap">Viewers du dernier stream classé, heure par heure (heure de Paris). C&rsquo;est un baromètre d&rsquo;activité qui ne dépend pas des gros streamers.</p>
+<div class="scroll"><div id="c5"></div></div>
+<details><summary>Voir les données</summary><div id="t5"></div></details>
+<div class="note"><p><b>Le classement ne mesure pas la même chose selon l&rsquo;heure.</b> À 7h du matin, 12 viewers suffisent à entrer dans le top 150&nbsp;; à minuit, il en faut 136. La nuit, le classement racle la longue traîne&nbsp;; le soir, il ne montre que la pointe. Toute comparaison d&rsquo;audience entre deux heures doit en tenir compte.</p></div>
+</div>
+
+<h2>Qualité des données</h2>
+
+<div class="card">
+<h3>43 groupes de tags à fusionner</h3>
+<p class="cap">Variantes d&rsquo;un même tag, regroupées après passage en minuscules et suppression des accents.</p>
+<div id="t11"></div>
+<div class="note">
+<p><b>Le cas le plus retors.</b> Quatre variantes de «&nbsp;Français&nbsp;» coexistent&nbsp;: la forme courante (128&nbsp;088 usages), <code>francais</code> sans accent (4&nbsp;622), <code>Francąis</code> avec un <i>a-ogonek</i> polonais à la place du <i>c-cédille</i> (229) &mdash; et une quatrième <b>visuellement identique à la première</b>, encodée en NFD (<code>c</code> + cédille combinante, 1 usage). Deux chaînes d&rsquo;octets différentes qui s&rsquo;affichent pareil.</p>
+<p><b>Pourquoi <code>COLLATE NOCASE</code> ne suffit pas.</b> Il replie la casse ASCII, rien de plus&nbsp;: ni les accents, ni les formes Unicode équivalentes. La normalisation doit se faire en amont, côté Python.</p>
+</div>
+</div>
+
+<div class="card">
+<h3>Les Drops, un signal à manier avec prudence</h3>
+<p class="cap">Audience médiane selon la présence du tag <code>DropsActivés</code>.</p>
+<div class="pair" id="p12"></div>
+<div class="note"><p><b>Corrélation, pas causalité.</b> Les Drops sont surtout activés sur les gros jeux esport&nbsp;: l&rsquo;écart observé mélange l&rsquo;effet du mécanisme et celui du jeu. Pour trancher, il faudrait comparer à jeu constant.</p></div>
+</div>
+
+<div class="foot" id="foot"></div>
+<div id="tip"></div>
+</div></div>
+<script>
+const D={"01":{"colonnes":["situation","nb_pas","pct_median","delta_median"],"lignes":[["changement de jeu",1538,-1.0,-9.0],["meme jeu",114822,0.06,1.0]]},"02":{"colonnes":["display_name","nb_changements"],"lignes":[["ZeratoR_247",874],["CaMaK24h",573],["Berlu",339],["moman24h",219],["TriplaX24",185],["SaarahSmaki",54],["SolaryHS",42],["insah_hasni",32],["MehDitDonc",32],["AltairNative",27],["KSWINNIIE",26],["JLTomy",24],["Kada",23],["Wingo",22],["beyAz",20],["Nulukie",20],["Icekei",18],["Skyyart",17],["ZONGOLED0Z0",17],["Iti63",16]]},"03":{"colonnes":["h_live","nb_obs","pct_du_pic"],"lignes":[[0,15487,64.1],[1,21888,77.7],[2,20105,80.4],[3,16714,79.2],[4,12589,76.2],[5,9345,72.8],[6,6698,70.1],[7,5017,68.2],[8,3843,67.2],[9,2761,66.3],[10,2041,63.6],[11,1494,62.0],[12,1146,61.7],[13,969,60.6],[14,793,58.5],[15,727,55.7]]},"04":{"colonnes":["type","nb_obs","viewers_moyen","viewers_max"],"lignes":[["live",123356,593.2,118996],["rediffusion",6924,405.2,8833]]},"05":{"colonnes":["heure_paris","nb_snapshots","seuil_median","audience_mediane"],"lignes":[[0,42,136.0,162017.0],[1,40,104.0,110161.0],[2,42,72.0,78906.0],[3,42,51.0,60095.0],[4,42,29.0,31902.0],[5,42,20.0,27292.0],[6,42,13.0,20309.0],[7,42,12.0,14399.0],[8,42,14.0,20912.0],[9,42,24.0,29376.0],[10,41,41.0,42440.0],[11,41,54.0,62137.0],[12,38,70.0,63199.0],[13,38,83.0,65620.0],[14,42,92.0,102887.0],[15,37,104.0,121336.0],[16,34,112.0,111581.0],[17,32,130.0,120962.0],[18,29,139.0,111212.0],[19,19,163.0,201955.0],[20,18,176.0,221547.0],[21,23,202.0,163241.0],[22,31,227.0,250529.0],[23,41,193.0,144841.0]]},"06":{"colonnes":["jour","streamers_presents","nouveaux","pct_nouveaux"],"lignes":[["2026-08-19",286,286,100.0],["2026-08-20",1055,817,77.4],["2026-08-21",1063,415,39.0],["2026-08-22",975,308,31.6],["2026-08-23",1042,278,26.7],["2026-08-24",1049,201,19.2],["2026-08-25",1069,179,16.7],["2026-08-26",793,122,15.4]]},"07":{"colonnes":["tranche","nb_streamers","total_obs","pct_audience"],"lignes":[["a. >= 500 obs",13,9832,8.9],["b. 200-499",103,27400,29.5],["c. 100-199",281,39609,34.5],["d. 50-99",384,27057,16.3],["e. 20-49",545,17372,8.9],["f. < 20 (ponctuel)",1280,9010,1.9]]},"08":{"colonnes":["display_name","captured_at","avant","apres","gain"],"lignes":[["RebeuDeter","2026-08-24T21:38:48.222576+00:00",2412,86231,83819],["RebeuDeter","2026-08-24T21:48:49.278180+00:00",86231,118996,32765],["mistermv","2026-08-25T19:18:17.080198+00:00",8256,25807,17551],["Kamet0","2026-08-23T17:20:13.282223+00:00",8648,24975,16327],["Flamby","2026-08-25T19:58:20.920988+00:00",1993,9485,7492],["Kamet0","2026-08-23T17:40:15.429354+00:00",32069,39459,7390],["Kamet0","2026-08-23T17:30:14.366248+00:00",24975,32069,7094],["ravusssss","2026-08-21T00:14:25.822795+00:00",3400,9540,6140],["Kamet0","2026-08-23T18:20:19.423728+00:00",38390,43180,4790],["Kamet0","2026-08-23T19:30:26.532970+00:00",47294,52074,4780],["JLTomy","2026-08-21T19:26:42.362867+00:00",395,4945,4550],["Minos","2026-08-19T21:00:38.033803+00:00",575,4589,4014],["Anyme023","2026-08-25T20:28:23.531757+00:00",20760,24632,3872],["Nikof","2026-08-21T12:55:56.413597+00:00",3213,6894,3681],["Kamet0","2026-08-20T18:43:45.214977+00:00",4017,7650,3633],["otplol_","2026-08-21T15:26:18.204548+00:00",4577,8042,3465],["Kamet0","2026-08-25T20:08:21.649286+00:00",5052,8513,3461],["Joueur_du_Grenier","2026-08-23T11:39:38.406275+00:00",6649,10058,3409],["Kamet0","2026-08-23T18:30:20.521347+00:00",43180,46461,3281],["Nikof","2026-08-21T13:05:58.058373+00:00",6894,10111,3217]]},"09":{"colonnes":["jour","name","pct"],"lignes":[["2026-08-19","Grand Theft Auto V",23.8],["2026-08-19","Just Chatting",21.7],["2026-08-19","VALORANT",4.8],["2026-08-19","League of Legends",4.0],["2026-08-20","Just Chatting",18.0],["2026-08-20","League of Legends",10.1],["2026-08-20","Grand Theft Auto V",9.9],["2026-08-20","VALORANT",6.8],["2026-08-20","Call of Duty: Modern Warfare 4",0.1],["2026-08-21","Just Chatting",12.5],["2026-08-21","League of Legends",11.3],["2026-08-21","VALORANT",8.8],["2026-08-21","Grand Theft Auto V",8.4],["2026-08-21","Call of Duty: Modern Warfare 4",8.0],["2026-08-22","Just Chatting",11.3],["2026-08-22","League of Legends",10.3],["2026-08-22","Grand Theft Auto V",9.4],["2026-08-22","Call of Duty: Modern Warfare 4",5.5],["2026-08-22","VALORANT",4.3],["2026-08-23","League of Legends",18.2],["2026-08-23","Just Chatting",12.1],["2026-08-23","Grand Theft Auto V",10.8],["2026-08-23","Call of Duty: Modern Warfare 4",4.7],["2026-08-23","VALORANT",4.4],["2026-08-24","Just Chatting",20.9],["2026-08-24","Grand Theft Auto V",14.6],["2026-08-24","League of Legends",9.3],["2026-08-24","Call of Duty: Modern Warfare 4",4.4],["2026-08-24","VALORANT",2.8],["2026-08-25","Just Chatting",19.0],["2026-08-25","Grand Theft Auto V",12.7],["2026-08-25","League of Legends",6.5],["2026-08-25","VALORANT",6.0],["2026-08-25","Call of Duty: Modern Warfare 4",2.2],["2026-08-26","Just Chatting",18.5],["2026-08-26","League of Legends",17.1],["2026-08-26","Grand Theft Auto V",8.2],["2026-08-26","VALORANT",5.2],["2026-08-26","Call of Duty: Modern Warfare 4",0.3]]},"10":{"colonnes":["name","heure_paris","pct_du_jeu"],"lignes":[["Call of Duty: Modern Warfare 4",0,5.33],["Call of Duty: Modern Warfare 4",1,3.34],["Call of Duty: Modern Warfare 4",2,2.61],["Call of Duty: Modern Warfare 4",3,1.94],["Call of Duty: Modern Warfare 4",4,0.79],["Call of Duty: Modern Warfare 4",5,0.53],["Call of Duty: Modern Warfare 4",6,0.2],["Call of Duty: Modern Warfare 4",7,0.28],["Call of Duty: Modern Warfare 4",8,0.44],["Call of Duty: Modern Warfare 4",9,0.96],["Call of Duty: Modern Warfare 4",10,1.51],["Call of Duty: Modern Warfare 4",11,1.98],["Call of Duty: Modern Warfare 4",12,2.5],["Call of Duty: Modern Warfare 4",13,3.14],["Call of Duty: Modern Warfare 4",14,3.85],["Call of Duty: Modern Warfare 4",15,5.34],["Call of Duty: Modern Warfare 4",16,5.37],["Call of Duty: Modern Warfare 4",17,6.16],["Call of Duty: Modern Warfare 4",18,11.02],["Call of Duty: Modern Warfare 4",19,10.02],["Call of Duty: Modern Warfare 4",20,8.88],["Call of Duty: Modern Warfare 4",21,7.67],["Call of Duty: Modern Warfare 4",22,9.13],["Call of Duty: Modern Warfare 4",23,7.01],["Fortnite",0,0.88],["Fortnite",1,0.71],["Fortnite",2,0.55],["Fortnite",3,0.38],["Fortnite",4,0.39],["Fortnite",5,0.2],["Fortnite",6,0.12],["Fortnite",7,0.12],["Fortnite",8,0.31],["Fortnite",9,0.57],["Fortnite",10,0.82],["Fortnite",11,1.75],["Fortnite",12,5.42],["Fortnite",13,7.02],["Fortnite",14,7.85],["Fortnite",15,14.87],["Fortnite",16,15.13],["Fortnite",17,15.3],["Fortnite",18,9.7],["Fortnite",19,8.71],["Fortnite",20,4.79],["Fortnite",21,1.77],["Fortnite",22,1.61],["Fortnite",23,1.06],["Grand Theft Auto V",0,18.81],["Grand Theft Auto V",1,16.24],["Grand Theft Auto V",2,10.54],["Grand Theft Auto V",3,7.02],["Grand Theft Auto V",4,4.18],["Grand Theft Auto V",5,2.13],["Grand Theft Auto V",6,0.87],["Grand Theft Auto V",7,0.42],["Grand Theft Auto V",8,0.17],["Grand Theft Auto V",9,0.24],["Grand Theft Auto V",10,0.2],["Grand Theft Auto V",11,0.09],["Grand Theft Auto V",12,0.04],["Grand Theft Auto V",13,0.05],["Grand Theft Auto V",14,0.08],["Grand Theft Auto V",15,0.07],["Grand Theft Auto V",16,0.07],["Grand Theft Auto V",17,0.18],["Grand Theft Auto V",18,0.58],["Grand Theft Auto V",19,0.38],["Grand Theft Auto V",20,1.04],["Grand Theft Auto V",21,4.1],["Grand Theft Auto V",22,13.4],["Grand Theft Auto V",23,19.11],["Just Chatting",0,10.77],["Just Chatting",1,7.15],["Just Chatting",2,5.45],["Just Chatting",3,3.27],["Just Chatting",4,2.34],["Just Chatting",5,1.58],["Just Chatting",6,0.99],["Just Chatting",7,0.82],["Just Chatting",8,1.05],["Just Chatting",9,1.51],["Just Chatting",10,2.38],["Just Chatting",11,3.04],["Just Chatting",12,2.56],["Just Chatting",13,3.35],["Just Chatting",14,3.73],["Just Chatting",15,3.19],["Just Chatting",16,3.51],["Just Chatting",17,3.08],["Just Chatting",18,3.21],["Just Chatting",19,2.51],["Just Chatting",20,3.68],["Just Chatting",21,6.64],["Just Chatting",22,10.63],["Just Chatting",23,13.56],["League of Legends",0,2.82],["League of Legends",1,2.18],["League of Legends",2,1.77],["League of Legends",3,1.36],["League of Legends",4,0.98],["League of Legends",5,0.61],["League of Legends",6,0.68],["League of Legends",7,0.67],["League of Legends",8,0.91],["League of Legends",9,1.68],["League of Legends",10,4.32],["League of Legends",11,5.88],["League of Legends",12,6.01],["League of Legends",13,6.51],["League of Legends",14,7.25],["League of Legends",15,6.04],["League of Legends",16,5.29],["League of Legends",17,7.3],["League of Legends",18,8.2],["League of Legends",19,7.28],["League of Legends",20,8.49],["League of Legends",21,8.01],["League of Legends",22,3.19],["League of Legends",23,2.54],["VALORANT",0,7.92],["VALORANT",1,5.75],["VALORANT",2,4.61],["VALORANT",3,4.27],["VALORANT",4,2.87],["VALORANT",5,1.23],["VALORANT",6,0.85],["VALORANT",7,0.42],["VALORANT",8,0.48],["VALORANT",9,0.75],["VALORANT",10,1.21],["VALORANT",11,1.64],["VALORANT",12,2.09],["VALORANT",13,2.8],["VALORANT",14,3.28],["VALORANT",15,2.79],["VALORANT",16,3.44],["VALORANT",17,7.1],["VALORANT",18,7.96],["VALORANT",19,8.31],["VALORANT",20,5.38],["VALORANT",21,6.64],["VALORANT",22,8.95],["VALORANT",23,9.28]]},"11":{"colonnes":["forme_normalisee","nb_variantes","variantes"],"lignes":[["francais",4,"Français / francais / Francąis / Français"],["educatif",3,"Éducatif / educatif / éducatif"],["anime",2,"Anime / Animé"],["celibataire",2,"Célibataire / celibataire"],["chloe",2,"chloé / chloe"],["cinema",2,"cinéma / cinema"],["communaute",2,"communauté / communaute"],["competitif",2,"Compétitif / competitif"],["competition",2,"competition / Compétition"],["debat",2,"débat / debat"],["decolonial",2,"décolonial / Decolonial"],["decouverte",2,"découverte / decouverte"],["delire",2,"délire / delire"],["detente",2,"Détente / Detente"],["developpement",2,"Developpement / développement"],["dofusretro",2,"dofusretro / Dofusrétro"],["drole",2,"drole / drôle"],["dropactive",2,"DropActive / dropactivé"],["echecs",2,"Échecs / echecs"],["ecologie",2,"Ecologie / écologie"],["ecriture",2,"Écriture / ecriture"],["english",2,"English / Englísh"],["espacesur",2,"EspaceSûr / Espacesur"],["immortal",2,"immortal / İMMORTAL"],["jeuxvideo",2,"jeuxvidéo / jeuxvideo"],["jeuxvideos",2,"Jeuxvidéos / jeuxvideos"],["khalamite",2,"khalamite / khalamité"],["medieval",2,"medieval / médiéval"],["moderation",2,"moderation / modération"],["montreal",2,"montreal / Montréal"],["patisserie",2,"Pâtisserie / patisserie"],["pedagogie",2,"pedagogie / pédagogie"],["pokemon",2,"pokemon / Pokémon"],["premierepartie",2,"PremièrePartie / PremierePartie"],["quebec",2,"Québec / Quebec"],["quebecois",2,"Québécois / Quebecois"],["quebecoise",2,"Québécoise / Quebecoise"],["quete",2,"quete / Quête"],["quetes",2,"Quetes / quêtes"],["react",2,"React / réact"],["sousecoute",2,"SousEcoute / SousÉcoute"],["strategie",2,"Strategie / Stratégie"],["telerealite",2,"téléréalité / telerealite"]]},"12":{"colonnes":["type","nb_obs","viewers_median"],"lignes":[["sans Drops",109069,213.0],["Drops actives",21211,252.0]]},"meta":{"observations":130280,"snapshots":882,"streamers":2606,"diffusions":7272,"jeux":742,"tags":3885,"liaisons":605672,"debut":"2026-08-19T20:50:36.961274+00:00","fin":"2026-08-26T13:03:53.889288+00:00","groupes_tags_a_fusionner":43}};
+const M=D.meta;
+const fmt=n=>Math.round(n).toLocaleString("fr-FR");
+const fmt1=n=>n.toLocaleString("fr-FR",{minimumFractionDigits:1,maximumFractionDigits:1});
+const el=id=>document.getElementById(id);
+const tip=el("tip");
+const CO=["--c1","--c2","--c3","--c4","--c5"];
+const cv=v=>getComputedStyle(document.querySelector(".viz-root")).getPropertyValue(v).trim();
+
+/* ---------- en-tete ---------- */
+const d0=new Date(M.debut),d1=new Date(M.fin);
+const jours=Math.floor((d1-d0)/86400000), heures=Math.round((d1-d0)/3600000)%24;
+el("metaline").textContent=`${fmt(M.snapshots)} captures toutes les 10 minutes · du 19 au 26 août 2026 (${jours} j ${heures} h) · top 150 des streams en français`;
+el("tiles").innerHTML=[
+ ["Observations",fmt(M.observations),"une par stream et par capture"],
+ ["Diffusions",fmt(M.diffusions),"sessions de live distinctes"],
+ ["Streamers",fmt(M.streamers),"vus au moins une fois"],
+ ["Jeux",fmt(M.jeux),"catégories distinctes"],
+ ["Tags",fmt(M.tags),`${M.groupes_tags_a_fusionner} groupes à fusionner`],
+ ["Liaisons",fmt(M.liaisons),"observation × tag"],
+].map(([k,v,s])=>`<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join("");
+
+
+/* Graduations rondes : sans ca on obtient des axes du genre 28/56/84/112 %,
+   avec un 112 % impossible pour un pourcentage. */
+function echelle(min,max,cible,zero,plafond){
+  let lo=zero?0:min, hi=max;
+  if(plafond!==undefined) hi=Math.min(hi,plafond);
+  const brut=(hi-lo)/cible||1;
+  const mag=Math.pow(10,Math.floor(Math.log10(brut)));
+  const pas=[1,2,2.5,5,10].map(m=>m*mag).find(s=>s>=brut)||10*mag;
+  lo=Math.floor(lo/pas)*pas;
+  hi=Math.ceil(hi/pas)*pas;
+  if(plafond!==undefined) hi=Math.min(hi,plafond);
+  const ticks=[];
+  for(let v=lo;v<=hi+pas/1000;v+=pas) ticks.push(v);
+  return {lo,hi,ticks};
+}
+
+/* ---------- tooltip ---------- */
+function showTip(html,x,y){
+  tip.innerHTML=html;tip.style.opacity=1;
+  const r=tip.getBoundingClientRect();
+  let px=x+14,py=y+14;
+  if(px+r.width>innerWidth-8)px=x-r.width-14;
+  if(py+r.height>innerHeight-8)py=y-r.height-14;
+  tip.style.left=Math.max(8,px)+"px";tip.style.top=Math.max(8,py)+"px";
+}
+const hideTip=()=>tip.style.opacity=0;
+
+/* ---------- tableau generique ---------- */
+function table(host,cols,rows,fmts){
+  let h="<table class='t'><tr>"+cols.map(c=>`<th>${c}</th>`).join("")+"</tr>";
+  for(const r of rows){
+    h+="<tr>"+r.map((v,i)=>`<td>${fmts&&fmts[i]?fmts[i](v):(v===null?"":v)}</td>`).join("")+"</tr>";
+  }
+  el(host).innerHTML=h+"</table>";
+}
+
+/* ---------- graphe en barres horizontales ---------- */
+function bars(host,items,opts){
+  const W=Math.min(640,innerWidth-90),rowH=34,PL=opts.labelW||128,PR=52;
+  const H=items.length*rowH+8;
+  const max=Math.max(...items.map(i=>i.v));
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img">`;
+  items.forEach((it,i)=>{
+    const y=i*rowH+6,bw=Math.max(2,(W-PL-PR)*it.v/max);
+    s+=`<text x="${PL-10}" y="${y+15}" text-anchor="end" font-size="12.5" fill="${cv("--text-secondary")}">${it.k}</text>`;
+    s+=`<rect x="${PL}" y="${y+3}" width="${bw}" height="17" rx="4" fill="${cv("--c1")}"/>`;
+    s+=`<text x="${PL+bw+9}" y="${y+16}" font-size="12.5" font-weight="600" fill="${cv("--text-primary")}">${it.lab}</text>`;
+    s+=`<rect class="hit" x="0" y="${y}" width="${W}" height="${rowH-2}" data-t="${encodeURIComponent(it.tip)}"/>`;
+  });
+  el(host).innerHTML=s+"</svg>";
+}
+
+/* ---------- graphe lignes ---------- */
+function lines(host,cfg){
+  const W=Math.min(cfg.w||640,innerWidth-90),H=cfg.h||210;
+  const PL=cfg.pl||46,PR=cfg.pr||14,PT=12,PB=30;
+  const xs=cfg.x, allY=cfg.series.flatMap(s=>s.pts.map(p=>p[1]));
+  const ech=echelle(Math.min(...allY),Math.max(...allY),cfg.yTicks||4,cfg.y0===0,cfg.yMax);
+  const lo=ech.lo, hi=ech.hi;
+  const px=i=>PL+(W-PL-PR)*(xs.length<2?0.5:i/(xs.length-1));
+  const py=v=>PT+(H-PT-PB)*(1-(v-lo)/(hi-lo));
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img">`;
+  // grille horizontale
+  for(const v of ech.ticks){
+    const y=py(v);
+    s+=`<line x1="${PL}" y1="${y}" x2="${W-PR}" y2="${y}" stroke="${cv("--grid")}" stroke-width="1"/>`;
+    s+=`<text x="${PL-8}" y="${y+4}" text-anchor="end" font-size="11" fill="${cv("--text-muted")}">${cfg.yFmt(v)}</text>`;
+  }
+  // labels x
+  xs.forEach((lb,i)=>{ if(cfg.xEvery&&i%cfg.xEvery)return;
+    s+=`<text x="${px(i)}" y="${H-9}" text-anchor="middle" font-size="11" fill="${cv("--text-muted")}">${lb}</text>`;});
+  // series
+  cfg.series.forEach((se,si)=>{
+    const col=cv(CO[si%5]);
+    const d=se.pts.map((p,i)=>`${i?"L":"M"}${px(p[0]).toFixed(1)},${py(p[1]).toFixed(1)}`).join("");
+    if(cfg.area&&cfg.series.length===1){
+      s+=`<path d="${d}L${px(se.pts[se.pts.length-1][0])},${py(lo)}L${px(se.pts[0][0])},${py(lo)}Z" fill="${col}" opacity=".1"/>`;
+    }
+    s+=`<path d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+    if(cfg.dots!==false)se.pts.forEach(p=>{
+      s+=`<circle cx="${px(p[0])}" cy="${py(p[1])}" r="3.4" fill="${col}" stroke="${cv("--surface-2")}" stroke-width="2"/>`;});
+    if(se.label){const lp=se.pts[se.pts.length-1];
+      s+=`<text x="${px(lp[0])+7}" y="${py(lp[1])+4}" font-size="11.5" font-weight="600" fill="${cv("--text-secondary")}">${se.label}</text>`;}
+  });
+  // zone de survol : une bande par x
+  xs.forEach((lb,i)=>{
+    const bw=(W-PL-PR)/xs.length;
+    const rows=cfg.series.map((se,si)=>{const p=se.pts.find(p=>p[0]===i);
+      return p?`<div class="r"><span><i style="background:${cv(CO[si%5])}"></i>${se.name}</span><span>${cfg.tFmt(p[1])}</span></div>`:"";}).join("");
+    s+=`<rect class="hit" x="${PL+bw*i-bw/2+bw/2}" y="0" width="${bw}" height="${H-PB+8}" data-t="${encodeURIComponent(`<b>${cfg.tTitle(lb)}</b>${rows}`)}"/>`;
+  });
+  el(host).innerHTML=s+"</svg>";
+}
+
+/* ---------- 7. regularite ---------- */
+{
+ const rows=D["07"].lignes;
+ const noms={"a. >= 500 obs":"500 captures et +","b. 200-499":"200 à 499","c. 100-199":"100 à 199",
+             "d. 50-99":"50 à 99","e. 20-49":"20 à 49","f. < 20 (ponctuel)":"moins de 20"};
+ bars("c7",rows.map(r=>({k:noms[r[0]]||r[0],v:r[3],lab:fmt1(r[3])+" %",
+   tip:`<b>${noms[r[0]]||r[0]} captures</b><div class="r"><span>Streamers</span><span>${fmt(r[1])}</span></div><div class="r"><span>Observations</span><span>${fmt(r[2])}</span></div><div class="r"><span>Part d’audience</span><span>${fmt1(r[3])} %</span></div>`})),
+   {labelW:132});
+ table("t7",["Tranche","Streamers","Observations","Part d’audience"],
+   rows.map(r=>[noms[r[0]]||r[0],fmt(r[1]),fmt(r[2]),fmt1(r[3])+" %"]));
+}
+
+/* ---------- 6. rotation ---------- */
+{
+ const rows=D["06"].lignes;
+ const lab=rows.map(r=>r[0].slice(8)+"/"+r[0].slice(5,7));
+ lines("c6",{x:lab,w:470,h:196,y0:0,yMax:100,area:true,
+  series:[{name:"Nouveaux",pts:rows.map((r,i)=>[i,r[3]])}],
+  yFmt:v=>Math.round(v)+" %",tFmt:v=>fmt1(v)+" %",tTitle:l=>l});
+ table("t6",["Jour","Présents","Nouveaux","Part"],
+  rows.map(r=>[r[0],fmt(r[1]),fmt(r[2]),fmt1(r[3])+" %"]));
+}
+
+/* ---------- 2. titres ---------- */
+table("t2",["Streamer","Changements"],D["02"].lignes.slice(0,8).map(r=>[r[0],fmt(r[1])]));
+
+/* ---------- 3. cycle de vie ---------- */
+{
+ const rows=D["03"].lignes;
+ lines("c3",{x:rows.map(r=>r[0]+"h"),w:900,h:230,yMax:100,area:true,xEvery:1,
+  series:[{name:"% du pic",pts:rows.map((r,i)=>[i,r[2]])}],
+  yFmt:v=>Math.round(v)+" %",tFmt:v=>fmt1(v)+" %",
+  tTitle:l=>l+" de direct"});
+ table("t3",["Heure de live","Observations","% du pic"],
+  rows.map(r=>[r[0]+" h",fmt(r[1]),fmt1(r[2])+" %"]));
+}
+
+/* ---------- 1 et 4 et 12 : paires ---------- */
+{
+ const g=D["01"].lignes, ch=g.find(r=>r[0]==="changement de jeu"), mm=g.find(r=>r[0]==="meme jeu");
+ el("p1").innerHTML=
+  `<div><div class="k">Changement de jeu</div><div class="v" style="color:${cv("--neg")}">${fmt1(ch[2])} %</div><div class="s">${fmt(ch[1])} transitions · ${fmt1(ch[3])} viewers</div></div>`+
+  `<div><div class="k">Même jeu (témoin)</div><div class="v">+${fmt1(mm[2]).replace("0,1","0,06")} %</div><div class="s">${fmt(mm[1])} pas · +${fmt1(mm[3])} viewers</div></div>`;
+ const r4=D["04"].lignes, live=r4.find(r=>r[0]==="live"), red=r4.find(r=>r[0]==="rediffusion");
+ el("p4").innerHTML=
+  `<div><div class="k">Lives</div><div class="v">${fmt(live[2])}</div><div class="s">viewers moyen · max ${fmt(live[3])}</div></div>`+
+  `<div><div class="k">Rediffusions</div><div class="v">${fmt(red[2])}</div><div class="s">viewers moyen · max ${fmt(red[3])}</div></div>`;
+ const r12=D["12"].lignes, av=r12.find(r=>r[0]==="Drops actives"), sa=r12.find(r=>r[0]==="sans Drops");
+ el("p12").innerHTML=
+  `<div><div class="k">Drops activés</div><div class="v">${fmt(av[2])}</div><div class="s">viewers médian · ${fmt(av[1])} obs.</div></div>`+
+  `<div><div class="k">Sans Drops</div><div class="v">${fmt(sa[2])}</div><div class="s">viewers médian · ${fmt(sa[1])} obs.</div></div>`;
+}
+
+/* ---------- 8. pics ---------- */
+table("t8",["Streamer","Moment","Avant","Après","Gain"],
+ D["08"].lignes.slice(0,8).map(r=>{
+  const d=new Date(r[1]);
+  const h=String(d.getUTCHours()+2).padStart(2,"0")+"h"+String(d.getUTCMinutes()).padStart(2,"0");
+  return [r[0],`${d.getUTCDate()}/${d.getUTCMonth()+1} ${h}`,fmt(r[2]),fmt(r[3]),"+"+fmt(r[4])];}));
+
+/* ---------- 9. parts de jeux ---------- */
+{
+ const rows=D["09"].lignes;
+ const jours=[...new Set(rows.map(r=>r[0]))].sort();
+ const jeux=[...new Set(rows.map(r=>r[1]))];
+ const ordre=jeux.map(j=>[j,rows.filter(r=>r[1]===j).reduce((a,r)=>a+r[2],0)])
+                 .sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
+ const court={"Call of Duty: Modern Warfare 4":"CoD MW4","Grand Theft Auto V":"GTA V",
+              "League of Legends":"LoL","Just Chatting":"Just Chatting","VALORANT":"VALORANT"};
+ lines("c9",{x:jours.map(j=>j.slice(8)+"/"+j.slice(5,7)),w:900,h:250,y0:0,yMax:100,pr:74,dots:true,
+  series:ordre.map(j=>({name:court[j]||j,label:court[j]||j,
+    pts:jours.map((d,i)=>{const m=rows.find(r=>r[0]===d&&r[1]===j);return m?[i,m[2]]:null;}).filter(Boolean)})),
+  yFmt:v=>Math.round(v)+" %",tFmt:v=>fmt1(v)+" %",tTitle:l=>l});
+ el("l9").innerHTML=ordre.map((j,i)=>`<span><i style="background:${cv(CO[i%5])}"></i>${court[j]||j}</span>`).join("");
+ table("t9",["Jour","Jeu","Part"],rows.map(r=>[r[0],r[1],fmt1(r[2])+" %"]));
+}
+
+/* ---------- 10. prime time par jeu ---------- */
+{
+ const rows=D["10"].lignes;
+ const jeux=[...new Set(rows.map(r=>r[0]))];
+ const court={"Call of Duty: Modern Warfare 4":"CoD MW4","Grand Theft Auto V":"GTA V",
+              "League of Legends":"LoL"};
+ let h="";
+ jeux.forEach((j,k)=>{
+   const pts=rows.filter(r=>r[0]===j).sort((a,b)=>a[1]-b[1]);
+   const max=Math.max(...pts.map(p=>p[2]));
+   const pic=pts.find(p=>p[2]===max);
+   const W=150,H=52;
+   const px=i=>2+(W-4)*i/23, py=v=>H-4-(H-10)*v/max;
+   const d=pts.map((p,i)=>`${i?"L":"M"}${px(i).toFixed(1)},${py(p[2]).toFixed(1)}`).join("");
+   h+=`<div class="u"><div class="n">${court[j]||j}</div>`+
+      `<div class="p">pic à ${pic[1]}h · ${fmt1(max)} %</div>`+
+      `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" preserveAspectRatio="none">`+
+      `<path d="${d}L${px(23)},${H-4}L${px(0)},${H-4}Z" fill="var(--c1)" opacity=".13"/>`+
+      `<path d="${d}" fill="none" stroke="var(--c1)" stroke-width="1.7" stroke-linejoin="round"/>`+
+      `</svg></div>`;
+ });
+ el("c10").innerHTML=h;
+ table("t10",["Jeu","Heure","Part de son audience"],rows.map(r=>[r[0],r[1]+" h",fmt1(r[2])+" %"]));
+}
+
+/* ---------- 5. seuil ---------- */
+{
+ const rows=D["05"].lignes;
+ lines("c5",{x:rows.map(r=>r[0]+"h"),w:900,h:230,y0:0,area:true,xEvery:2,
+  series:[{name:"Seuil d’entrée",pts:rows.map((r,i)=>[i,r[2]])}],
+  yFmt:v=>fmt(v),tFmt:v=>fmt(v)+" viewers",tTitle:l=>l+" (Paris)"});
+ table("t5",["Heure (Paris)","Captures","Seuil médian","Audience médiane"],
+  rows.map(r=>[r[0]+" h",fmt(r[1]),fmt(r[2]),fmt(r[3])]));
+}
+
+/* ---------- 11. tags ---------- */
+table("t11",["Forme normalisée","Variantes","Détail"],
+ D["11"].lignes.slice(0,12).map(r=>[r[0],r[1],r[2]]));
+
+/* ---------- pied ---------- */
+el("foot").innerHTML=
+ `<b>Méthode.</b> Données collectées via l’API Twitch Helix (<code>/helix/streams</code>, <code>language=fr</code>), `+
+ `chargées dans SQLite puis interrogées par douze requêtes SQL documentées. Les heures sont converties en heure de Paris (UTC+2).<br>`+
+ `<b>Trois limites à garder en tête.</b> Le top 150 tronque la longue traîne, et son seuil d’entrée varie d’un facteur dix selon l’heure. `+
+ `Chaque jour de la semaine n’apparaît qu’une fois&nbsp;: les effets de calendrier se confondent avec les événements ponctuels de cette semaine-là. `+
+ `Enfin, la collecte comporte des interruptions &mdash; certaines heures comptent moins de captures que d’autres.`;
+
+/* ---------- interactions ---------- */
+document.addEventListener("mousemove",e=>{
+  const h=e.target.closest?e.target.closest(".hit"):null;
+  if(!h){hideTip();return;}
+  showTip(decodeURIComponent(h.dataset.t),e.clientX,e.clientY);
+});
+document.addEventListener("mouseleave",hideTip);
+</script>

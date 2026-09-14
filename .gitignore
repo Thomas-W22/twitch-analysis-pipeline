@@ -1,0 +1,25 @@
+# Environnement
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+
+# Données (le brut et la base ne vont pas sur Git — trop volumineux, et régénérables)
+data/raw/*.json
+data/processed/*.db
+data/processed/*.sqlite
+
+# Garder les dossiers dans Git malgré le contenu ignoré
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

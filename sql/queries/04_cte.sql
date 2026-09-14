@@ -1,0 +1,3 @@
+-- Niveau 4 : sous-requêtes et CTE (WITH)
+-- Exemples à écrire toi-même :
+--   - Jeux dont la moyenne de viewers dépasse la moyenne globale

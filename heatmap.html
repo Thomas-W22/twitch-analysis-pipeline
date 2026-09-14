@@ -1,0 +1,154 @@
+<title>Rythmes du Twitch francophone</title>
+<style>
+.viz-root{color-scheme:light;--surface-1:#fcfcfb;--surface-2:#f4f3f0;--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#83827d;--border:#e2e1dc;--empty:#c9c7c0;
+--s100:#cde2fb;--s200:#9ec5f4;--s300:#6da7ec;--s400:#3987e5;--s500:#256abf;--s600:#184f95;--s700:#0d366b;--accent:#2a78d6}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) .viz-root{color-scheme:dark;--surface-1:#1a1a19;--surface-2:#232322;--text-primary:#ffffff;--text-secondary:#c3c2b7;--text-muted:#8a8981;--border:#383835;--empty:#4a4a46;
+--s100:#0d366b;--s200:#184f95;--s300:#256abf;--s400:#3987e5;--s500:#6da7ec;--s600:#9ec5f4;--s700:#cde2fb;--accent:#3987e5}}
+:root[data-theme="dark"] .viz-root{color-scheme:dark;--surface-1:#1a1a19;--surface-2:#232322;--text-primary:#ffffff;--text-secondary:#c3c2b7;--text-muted:#8a8981;--border:#383835;--empty:#4a4a46;
+--s100:#0d366b;--s200:#184f95;--s300:#256abf;--s400:#3987e5;--s500:#6da7ec;--s600:#9ec5f4;--s700:#cde2fb;--accent:#3987e5}
+*{box-sizing:border-box}
+body{margin:0;background:#fcfcfb}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) body{background:#1a1a19}}
+:root[data-theme="dark"] body{background:#1a1a19}
+.viz-root{background:var(--surface-1);color:var(--text-primary);font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;padding:40px 24px 64px;min-height:100vh}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:26px;line-height:1.25;margin:0 0 6px;letter-spacing:-.02em}
+.sub{color:var(--text-secondary);margin:0 0 4px;font-size:15px}
+.meta{color:var(--text-muted);font-size:13px;margin:0 0 32px}
+h2{font-size:16px;margin:40px 0 4px;letter-spacing:-.01em}
+.h2sub{color:var(--text-secondary);font-size:13.5px;margin:0 0 16px}
+.scroll{overflow-x:auto;padding-bottom:4px}
+table.hm{border-collapse:separate;border-spacing:2px;margin:0}
+table.hm th{font-weight:500;color:var(--text-muted);font-size:11px;padding:0}
+table.hm th.hr{width:30px;text-align:center;padding-bottom:4px}
+table.hm th.dy{text-align:right;padding-right:8px;font-size:12px;color:var(--text-secondary);white-space:nowrap}
+td.c{width:30px;height:26px;border-radius:4px;background-color:var(--surface-1);background-image:repeating-linear-gradient(45deg,var(--empty) 0 3px,transparent 3px 6px)}
+td.c[data-v]{cursor:pointer}
+td.c[data-v]:hover,td.c[data-v]:focus-visible{outline:2px solid var(--text-primary);outline-offset:1px}
+td.c[data-v]:focus{outline:2px solid var(--text-primary);outline-offset:1px}
+.lg{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:12px;color:var(--text-secondary);flex-wrap:wrap}
+.ramp{display:flex;gap:2px}
+.ramp i{width:26px;height:11px;border-radius:2px;display:block}
+.lgE{display:flex;align-items:center;gap:6px;margin-left:6px}
+.lgE i{width:13px;height:13px;border-radius:3px;display:block;background-color:var(--surface-1);background-image:repeating-linear-gradient(45deg,var(--empty) 0 3px,transparent 3px 6px)}
+#tip{position:fixed;z-index:50;pointer-events:none;opacity:0;transition:opacity .1s;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:12.5px;box-shadow:0 4px 16px rgba(0,0,0,.13);max-width:250px;color:var(--text-primary)}
+#tip b{display:block;font-size:13px;margin-bottom:4px}
+#tip .r{display:flex;justify-content:space-between;gap:14px;color:var(--text-secondary)}
+#tip .r span:last-child{color:var(--text-primary);font-variant-numeric:tabular-nums}
+.note{background:var(--surface-2);border-left:2px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 16px;margin:32px 0 0;font-size:13.5px;color:var(--text-secondary)}
+.note b{color:var(--text-primary);font-weight:600}
+.note p{margin:0 0 9px}.note p:last-child{margin:0}
+details{margin-top:28px;border-top:1px solid var(--border);padding-top:14px}
+summary{cursor:pointer;font-size:13.5px;color:var(--text-secondary)}
+table.tv{border-collapse:collapse;width:100%;margin-top:14px;font-size:12.5px}
+table.tv th,table.tv td{text-align:right;padding:5px 9px;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
+table.tv th:first-child,table.tv td:first-child{text-align:left}
+table.tv th{color:var(--text-muted);font-weight:500}
+</style>
+<div class="viz-root"><div class="wrap">
+<h1>Rythmes du Twitch francophone</h1>
+<p class="sub">Audience cumulée du top 150 des streams en français, par heure et jour de la semaine.</p>
+<p class="meta">882 captures toutes les 10 min &middot; 19&ndash;26 août 2026 &middot; 130 280 observations &middot; heure de Paris (UTC+2)</p>
+
+<h2>Audience cumulée du top 150</h2>
+<p class="h2sub">Somme des viewers des 150 plus gros streams francophones, moyennée par créneau.</p>
+<div class="scroll"><table class="hm" id="hmA"></table></div>
+<div class="lg"><span>Moins de viewers</span><div class="ramp" id="rampA"></div><span>Plus</span>
+<span class="lgE"><i></i>pas de capture</span></div>
+
+<h2>Seuil d&rsquo;entrée dans le top 150</h2>
+<p class="h2sub">Viewers du 150<sup>e</sup> stream &mdash; ce qu&rsquo;il faut réunir pour figurer dans le classement à cet instant.</p>
+<div class="scroll"><table class="hm" id="hmB"></table></div>
+<div class="lg"><span>Seuil bas</span><div class="ramp" id="rampB"></div><span>Seuil haut</span>
+<span class="lgE"><i></i>pas de capture</span></div>
+
+<div class="note">
+<p><b>Une seule semaine, pas une moyenne.</b> Chaque jour de la semaine n&rsquo;apparaît qu&rsquo;une fois dans la collecte. Un créneau «&nbsp;mardi 21h&nbsp;» reflète donc <em>un</em> mardi précis, pas un mardi typique &mdash; un événement ponctuel (la Gamescom se tenait cette semaine-là) s&rsquo;y confond avec le rythme hebdomadaire réel.</p>
+<p><b>Les trous sont des trous.</b> 15 créneaux n&rsquo;ont aucune capture et 5 en comptent moins de 3 sur les 6 attendus &mdash; la collecte s&rsquo;est interrompue par moments. Ces cellules sont hachurées&nbsp;: elles sortent de l&rsquo;échelle de couleur au lieu d&rsquo;en occuper le bas, pour ne jamais se lire comme une valeur faible.</p>
+<p><b>Le top 150 tronque la réalité.</b> À 5h du matin le 150<sup>e</sup> stream réunit ~11 viewers, à 22h ~221. Le classement ne mesure donc pas la même chose selon l&rsquo;heure&nbsp;: la nuit il descend loin dans la longue traîne, le soir il ne montre que la pointe de l&rsquo;iceberg.</p>
+</div>
+
+<details><summary>Voir les données sous forme de tableau</summary>
+<table class="tv" id="tv"></table></details>
+<div id="tip"></div>
+</div></div>
+<script>
+const DATA=[{"j":0,"h":0,"a":118191,"s":123,"g":52.2,"n":6},{"j":0,"h":1,"a":94105,"s":93,"g":50.3,"n":6},{"j":0,"h":2,"a":65690,"s":46,"g":50.0,"n":6},{"j":0,"h":3,"a":44136,"s":46,"g":51.8,"n":6},{"j":0,"h":4,"a":28706,"s":25,"g":53.7,"n":6},{"j":0,"h":5,"a":21046,"s":21,"g":58.5,"n":6},{"j":0,"h":6,"a":17494,"s":11,"g":62.3,"n":6},{"j":0,"h":7,"a":17056,"s":10,"g":66.5,"n":6},{"j":0,"h":8,"a":21887,"s":14,"g":70.3,"n":6},{"j":0,"h":9,"a":35067,"s":24,"g":72.7,"n":6},{"j":0,"h":10,"a":61645,"s":43,"g":70.7,"n":6},{"j":0,"h":11,"a":75128,"s":64,"g":70.3,"n":6},{"j":0,"h":12,"a":78034,"s":82,"g":71.2,"n":6},{"j":0,"h":13,"a":90909,"s":88,"g":69.3,"n":6},{"j":0,"h":14,"a":101393,"s":96,"g":65.0,"n":6},{"j":0,"h":15,"a":105033,"s":124,"g":64.3,"n":6},{"j":0,"h":16,"a":115856,"s":133,"g":66.0,"n":5},{"j":0,"h":17,"a":136531,"s":147,"g":67.8,"n":6},{"j":0,"h":18,"a":158411,"s":155,"g":67.0,"n":6},{"j":0,"h":19,"a":187033,"s":157,"g":67.3,"n":6},{"j":0,"h":20,"a":217567,"s":164,"g":65.7,"n":6},{"j":0,"h":21,"a":237621,"s":187,"g":56.2,"n":6},{"j":0,"h":22,"a":195637,"s":195,"g":48.2,"n":6},{"j":0,"h":23,"a":184258,"s":192,"g":50.3,"n":6},{"j":1,"h":0,"a":152784,"s":112,"g":49.3,"n":6},{"j":1,"h":1,"a":118805,"s":97,"g":48.2,"n":6},{"j":1,"h":2,"a":88604,"s":74,"g":47.3,"n":6},{"j":1,"h":3,"a":61802,"s":45,"g":48.7,"n":6},{"j":1,"h":4,"a":43047,"s":33,"g":54.2,"n":6},{"j":1,"h":5,"a":26556,"s":21,"g":53.0,"n":6},{"j":1,"h":6,"a":18081,"s":14,"g":60.7,"n":6},{"j":1,"h":7,"a":15631,"s":13,"g":62.3,"n":6},{"j":1,"h":8,"a":18418,"s":11,"g":65.2,"n":6},{"j":1,"h":9,"a":26500,"s":23,"g":64.5,"n":6},{"j":1,"h":10,"a":37447,"s":40,"g":62.2,"n":6},{"j":1,"h":11,"a":45051,"s":48,"g":59.7,"n":6},{"j":1,"h":12,"a":52250,"s":63,"g":55.5,"n":2},{"j":1,"h":13,"a":57989,"s":74,"g":59.0,"n":6},{"j":1,"h":14,"a":63939,"s":78,"g":55.8,"n":6},{"j":1,"h":15,"a":70961,"s":96,"g":61.8,"n":6},{"j":1,"h":16,"a":79215,"s":101,"g":65.0,"n":6},{"j":1,"h":17,"a":98033,"s":124,"g":56.4,"n":5},{"j":1,"h":18,"a":117083,"s":135,"g":56.7,"n":6},{"j":1,"h":19,"a":122994,"s":149,"g":61.0,"n":1},{"j":1,"h":22,"a":244634,"s":265,"g":44.8,"n":6},{"j":1,"h":23,"a":264738,"s":204,"g":47.7,"n":6},{"j":2,"h":0,"a":172492,"s":151,"g":43.7,"n":6},{"j":2,"h":1,"a":114651,"s":107,"g":40.7,"n":6},{"j":2,"h":2,"a":84924,"s":49,"g":43.0,"n":6},{"j":2,"h":3,"a":60201,"s":41,"g":45.2,"n":6},{"j":2,"h":4,"a":37127,"s":21,"g":45.7,"n":6},{"j":2,"h":5,"a":22792,"s":16,"g":53.2,"n":6},{"j":2,"h":6,"a":13736,"s":10,"g":62.2,"n":6},{"j":2,"h":7,"a":12805,"s":11,"g":61.5,"n":6},{"j":2,"h":8,"a":17160,"s":9,"g":68.3,"n":6},{"j":2,"h":9,"a":27702,"s":24,"g":71.8,"n":6},{"j":2,"h":10,"a":39403,"s":39,"g":67.2,"n":5},{"j":2,"h":11,"a":47898,"s":52,"g":63.4,"n":5},{"j":2,"h":12,"a":54895,"s":45,"g":59.5,"n":6},{"j":2,"h":13,"a":64972,"s":94,"g":60.5,"n":2},{"j":2,"h":14,"a":69630,"s":96,"g":57.8,"n":6},{"j":2,"h":15,"a":73260,"s":111,"g":55.0,"n":6},{"j":2,"h":16,"a":79824,"s":68,"g":55.2,"n":6},{"j":2,"h":17,"a":87994,"s":128,"g":56.0,"n":6},{"j":2,"h":18,"a":100328,"s":143,"g":57.0,"n":6},{"j":2,"h":21,"a":241136,"s":252,"g":42.0,"n":5},{"j":2,"h":22,"a":227251,"s":235,"g":45.8,"n":6},{"j":2,"h":23,"a":199821,"s":169,"g":56.8,"n":6},{"j":3,"h":0,"a":153870,"s":150,"g":50.0,"n":6},{"j":3,"h":1,"a":107981,"s":96,"g":40.8,"n":4},{"j":3,"h":2,"a":81790,"s":57,"g":38.8,"n":6},{"j":3,"h":3,"a":62221,"s":52,"g":45.7,"n":6},{"j":3,"h":4,"a":45022,"s":31,"g":50.7,"n":6},{"j":3,"h":5,"a":23857,"s":19,"g":59.3,"n":6},{"j":3,"h":6,"a":15164,"s":9,"g":61.7,"n":6},{"j":3,"h":7,"a":14937,"s":10,"g":65.2,"n":6},{"j":3,"h":8,"a":18528,"s":15,"g":66.3,"n":6},{"j":3,"h":9,"a":28606,"s":19,"g":60.7,"n":6},{"j":3,"h":10,"a":45752,"s":40,"g":63.8,"n":6},{"j":3,"h":11,"a":58650,"s":63,"g":60.8,"n":6},{"j":3,"h":12,"a":66809,"s":55,"g":62.5,"n":6},{"j":3,"h":13,"a":73634,"s":88,"g":58.2,"n":6},{"j":3,"h":14,"a":79055,"s":80,"g":56.3,"n":6},{"j":3,"h":15,"a":82517,"s":103,"g":54.0,"n":1},{"j":3,"h":22,"a":208835,"s":132,"g":55.0,"n":1},{"j":3,"h":23,"a":193288,"s":188,"g":55.8,"n":6},{"j":4,"h":0,"a":157965,"s":143,"g":56.2,"n":6},{"j":4,"h":1,"a":124588,"s":106,"g":50.7,"n":6},{"j":4,"h":2,"a":93994,"s":72,"g":47.5,"n":6},{"j":4,"h":3,"a":67544,"s":57,"g":53.2,"n":6},{"j":4,"h":4,"a":48991,"s":32,"g":54.3,"n":6},{"j":4,"h":5,"a":30790,"s":22,"g":60.5,"n":6},{"j":4,"h":6,"a":21577,"s":14,"g":62.8,"n":6},{"j":4,"h":7,"a":18913,"s":10,"g":62.7,"n":6},{"j":4,"h":8,"a":21942,"s":14,"g":70.7,"n":6},{"j":4,"h":9,"a":31785,"s":24,"g":69.5,"n":6},{"j":4,"h":10,"a":45288,"s":45,"g":67.7,"n":6},{"j":4,"h":11,"a":54222,"s":49,"g":67.5,"n":6},{"j":4,"h":12,"a":57717,"s":60,"g":61.8,"n":6},{"j":4,"h":13,"a":69332,"s":65,"g":62.5,"n":6},{"j":4,"h":14,"a":77213,"s":95,"g":61.3,"n":6},{"j":4,"h":15,"a":93709,"s":99,"g":58.7,"n":6},{"j":4,"h":16,"a":109815,"s":115,"g":61.3,"n":6},{"j":4,"h":17,"a":118836,"s":96,"g":64.7,"n":6},{"j":4,"h":18,"a":125022,"s":133,"g":67.4,"n":5},{"j":4,"h":19,"a":138123,"s":138,"g":63.7,"n":6},{"j":4,"h":20,"a":158535,"s":160,"g":55.2,"n":6},{"j":4,"h":21,"a":174157,"s":205,"g":53.5,"n":6},{"j":4,"h":22,"a":183689,"s":216,"g":59.5,"n":6},{"j":4,"h":23,"a":159928,"s":164,"g":59.8,"n":6},{"j":5,"h":0,"a":125303,"s":148,"g":52.5,"n":6},{"j":5,"h":1,"a":96532,"s":112,"g":46.8,"n":6},{"j":5,"h":2,"a":70465,"s":69,"g":46.5,"n":6},{"j":5,"h":3,"a":46601,"s":52,"g":51.7,"n":6},{"j":5,"h":4,"a":33232,"s":30,"g":58.0,"n":6},{"j":5,"h":5,"a":21732,"s":17,"g":61.2,"n":6},{"j":5,"h":6,"a":15270,"s":12,"g":63.0,"n":6},{"j":5,"h":7,"a":14867,"s":12,"g":67.3,"n":6},{"j":5,"h":8,"a":20072,"s":12,"g":69.0,"n":6},{"j":5,"h":9,"a":31856,"s":21,"g":69.8,"n":6},{"j":5,"h":10,"a":45969,"s":30,"g":67.0,"n":6},{"j":5,"h":11,"a":58906,"s":50,"g":62.2,"n":6},{"j":5,"h":12,"a":67080,"s":66,"g":62.7,"n":6},{"j":5,"h":13,"a":83183,"s":61,"g":66.0,"n":6},{"j":5,"h":14,"a":96112,"s":81,"g":62.5,"n":6},{"j":5,"h":15,"a":115891,"s":79,"g":60.3,"n":6},{"j":5,"h":16,"a":113186,"s":102,"g":57.8,"n":5},{"j":5,"h":17,"a":154599,"s":112,"g":56.0,"n":4},{"j":5,"h":18,"a":185525,"s":126,"g":55.0,"n":6},{"j":5,"h":19,"a":202149,"s":148,"g":57.8,"n":6},{"j":5,"h":20,"a":186251,"s":180,"g":56.7,"n":6},{"j":5,"h":21,"a":183892,"s":186,"g":54.0,"n":6},{"j":5,"h":22,"a":165093,"s":207,"g":56.2,"n":6},{"j":5,"h":23,"a":147299,"s":190,"g":60.7,"n":6},{"j":6,"h":0,"a":124414,"s":114,"g":52.8,"n":6},{"j":6,"h":1,"a":100913,"s":114,"g":44.7,"n":6},{"j":6,"h":2,"a":69748,"s":85,"g":42.7,"n":6},{"j":6,"h":3,"a":51495,"s":53,"g":41.5,"n":6},{"j":6,"h":4,"a":38038,"s":30,"g":48.7,"n":6},{"j":6,"h":5,"a":24969,"s":24,"g":61.5,"n":6},{"j":6,"h":6,"a":15800,"s":16,"g":65.5,"n":6},{"j":6,"h":7,"a":15602,"s":11,"g":66.3,"n":6},{"j":6,"h":8,"a":22059,"s":18,"g":64.0,"n":6},{"j":6,"h":9,"a":34609,"s":21,"g":66.7,"n":6},{"j":6,"h":10,"a":50968,"s":39,"g":64.2,"n":6},{"j":6,"h":11,"a":67541,"s":64,"g":65.7,"n":6},{"j":6,"h":12,"a":89570,"s":75,"g":58.8,"n":6},{"j":6,"h":13,"a":92543,"s":69,"g":63.0,"n":6},{"j":6,"h":14,"a":112498,"s":80,"g":61.5,"n":6},{"j":6,"h":15,"a":123791,"s":97,"g":62.7,"n":6},{"j":6,"h":16,"a":130975,"s":116,"g":60.8,"n":6},{"j":6,"h":17,"a":135643,"s":96,"g":60.4,"n":5},{"j":6,"h":23,"a":140799,"s":153,"g":49.6,"n":5}];
+const JOURS=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+const ORD=[1,2,3,4,5,6,0];
+const STEPS=["--s100","--s200","--s300","--s400","--s500","--s600","--s700"];
+const idx={};DATA.forEach(d=>idx[d.j+"_"+d.h]=d);
+const fmt=n=>n.toLocaleString("fr-FR");
+
+function build(tableId,rampId,key){
+  const vals=DATA.map(d=>d[key]);
+  const min=Math.min.apply(null,vals),max=Math.max.apply(null,vals);
+  const bucket=v=>Math.min(6,Math.floor(((v-min)/(max-min))*7));
+  let h="<tr><th></th>";
+  for(let x=0;x<24;x++)h+='<th class="hr">'+(x%3===0?x+"h":"")+"</th>";
+  h+="</tr>";
+  for(let r=0;r<7;r++){
+    const j=ORD[r];
+    h+='<tr><th class="dy">'+JOURS[r]+"</th>";
+    for(let x=0;x<24;x++){
+      const d=idx[j+"_"+x];
+      if(!d){h+='<td class="c"></td>';continue;}
+      h+='<td class="c" data-v="1" tabindex="0" style="background-image:none;background-color:var('+STEPS[bucket(d[key])]+')" data-j="'+j+'" data-h="'+x+'"></td>';
+    }
+    h+="</tr>";
+  }
+  document.getElementById(tableId).innerHTML=h;
+  document.getElementById(rampId).innerHTML=STEPS.map(s=>'<i style="background:var('+s+')"></i>').join("");
+}
+build("hmA","rampA","a");
+build("hmB","rampB","s");
+
+const tip=document.getElementById("tip");
+function show(c){
+  const d=idx[c.dataset.j+"_"+c.dataset.h];
+  const dayName=JOURS[ORD.indexOf(+c.dataset.j)];
+  const hh=+c.dataset.h;
+  tip.innerHTML="<b>"+dayName+" "+hh+"h–"+((hh+1)%24)+"h</b>"+
+    '<div class="r"><span>Audience top 150</span><span>'+fmt(d.a)+"</span></div>"+
+    '<div class="r"><span>Seuil d’entrée</span><span>'+fmt(d.s)+"</span></div>"+
+    '<div class="r"><span>Jeux distincts</span><span>'+d.g+"</span></div>"+
+    '<div class="r"><span>Captures</span><span>'+d.n+"/6</span></div>";
+  tip.style.opacity=1;
+}
+function place(x,y){
+  const r=tip.getBoundingClientRect();
+  let px=x+14,py=y+14;
+  if(px+r.width>innerWidth-8)px=x-r.width-14;
+  if(py+r.height>innerHeight-8)py=y-r.height-14;
+  tip.style.left=Math.max(8,px)+"px";tip.style.top=Math.max(8,py)+"px";
+}
+document.addEventListener("mouseover",function(e){
+  const c=e.target.closest?e.target.closest("td.c[data-v]"):null;
+  if(!c){tip.style.opacity=0;return;}
+  show(c);
+  // positionner des le mouseover : sans ca le tooltip s'affiche en 0,0
+  // le temps d'un frame, jusqu'au premier mousemove.
+  place(e.clientX,e.clientY);
+});
+// Parite clavier : le focus donne exactement le meme detail que le survol.
+document.addEventListener("focusin",function(e){
+  const c=e.target.closest?e.target.closest("td.c[data-v]"):null;
+  if(!c)return;
+  show(c);
+  const b=c.getBoundingClientRect();
+  place(b.right-6,b.bottom-6);
+});
+document.addEventListener("focusout",function(){tip.style.opacity=0;});
+document.addEventListener("mousemove",function(e){
+  if(tip.style.opacity==="0")return;
+  place(e.clientX,e.clientY);
+});
+
+let t="<tr><th>Créneau</th><th>Audience top 150</th><th>Seuil d’entrée</th><th>Jeux distincts</th><th>Captures</th></tr>";
+for(let r=0;r<7;r++){const j=ORD[r];
+  for(let x=0;x<24;x++){const d=idx[j+"_"+x];
+    t+="<tr><td>"+JOURS[r]+" "+x+"h</td>"+
+      (d?"<td>"+fmt(d.a)+"</td><td>"+fmt(d.s)+"</td><td>"+d.g+"</td><td>"+d.n+"/6</td>"
+        :'<td colspan="4" style="text-align:center;color:var(--text-muted)">pas de capture</td>')+"</tr>";}}
+document.getElementById("tv").innerHTML=t;
+</script>
